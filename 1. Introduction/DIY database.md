@@ -35,11 +35,11 @@ print(stats)
 - This means that student 012121212 has submitted three solutions, student 012341234 has submitted four solutions, and student 013371337 has submitted one solution.
 #### Possible problems
 - Such a database using a CSV file is functional in principle, but using it can lead to problems:
-- Amount of information
+- **Efficiency**
    - As the amount of data grows, retrieving data from a CSV file can become a problem. This is because in most situations we have to go through the entire file contents from beginning to end when we want to retrieve a specific item.
    - For example, if we want to find out what score student 012341234 got on task 2, we have to go through all the rows in the file to find the correct rows. We have to do this because the rows related to a particular student can be located in different parts of the file and we have no prior knowledge of their location.
    - Traversing a file is not a problem if the file is small. For example, if the file has a hundred rows, traversing is very fast. But as the file size grows, it becomes tedious to traverse all the rows every time we want to find out something from the database.
-- Concurrency
+- **Concurrency**
 > What happens if two students submit their solutions at the same time? In this case, the file should have two lines of information at the end, like this:
 ```csv
 012341234;3;2020-05-07 15:42:02;0
@@ -52,11 +52,11 @@ print(stats)
 - Here, the first process first writes to the end of the file `012341234;3;2020,` then the second process writes in between `013371337;7;2020-05-07 15:42:02;0,` and finally the first process writes `-05-07 15:42:02;0.` As a result, the file structure gets messed up.
 - When writing data to a file, it is not certain that the data will arrive in one piece if someone else tries to write at the same time. This depends on the file system, the amount of data, and how the file is processed.
 
-- Surprises
+- **Surprises**
      - Let's consider a situation where we want to remove the submissions of student 012341234 from the database. We can do this by first reading all the rows into memory and then writing back to the file all the rows where the student is not 012341234.
      - What if the power goes out just after we've written back half of the lines? When we restart the computer, we find that only half of the lines are in the file and the rest are gone and we have no way to get them back.
 ##### What do we learn from this?
 - A simple text file is not a bad way to store information, but it is not suitable for all purposes. This is why we need separate database systems, which we will explore in this course.
 
-- Database system developers have carefully considered how to implement the system so that data can be accessed efficiently, concurrent users do not cause problems, and data is not lost in unexpected situations. When we use a database system, we do not have to worry about all of this ourselves.
+- `Database system developers` have carefully considered how to implement the system so that data can be accessed efficiently, concurrent users do not cause problems, and data is not lost in unexpected situations. When we use a database system, we do not have to worry about all of this ourselves.
 
