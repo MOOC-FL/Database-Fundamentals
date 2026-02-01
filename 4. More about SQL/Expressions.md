@@ -22,7 +22,15 @@ testi
 sqlite> SELECT 3 < 5;
 1
 ```
-- The first query evaluates the expression `2 * (1 + 3)`. The second query uses `||` the operator to concatenate the strings `'tes'`and `'ti'`into the string `'testi'`. The third query determines 3 < 5the value of the conditional expression. This shows that in SQLite, an integer represents a boolean value: 1 is true and 0 is false.
+- The first query evaluates the expression `2 * (1 + 3)`. The second query uses `||` the operator to concatenate the strings `'tes'`and `'ti'`into the string `'testi'`. The third query determines `3 < 5` the value of the conditional expression. This shows that in SQLite, an integer represents a `boolean value: 1 `is true and 0 is false.
+- Many things related to SQL expressions are familiar from programming:
+
+1. calculations: `+`, `-`, `*`, `/`,`%`
+2. comparing: `=`, `<>`, `<`, `<=`, `>`,`>=`
+3. association of terms: `AND`, `OR`,`NOT`
+In addition to these, however, SQL also has more special features that are sometimes useful to know. Here are some of them:
+
+
 
 
 
