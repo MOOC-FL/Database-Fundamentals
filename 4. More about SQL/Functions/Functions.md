@@ -14,7 +14,20 @@ Here's the content converted to Markdown format:
 | `SUBSTR(s, a, b)` | Characters of string `s` starting from position `a`, taking `b` characters |
 | `UPPER(s)` | String `s` in uppercase |
 
-ذذذ
+- The following query searches for products with six letters in their names (such as turnip and turnip).
+```sql
+SELECT * FROM Products WHERE LENGTH(name) = 6;
+```
+- The following query groups products by the first letter and reports the quantities of products starting with each letter.
+```sql
+SELECT
+  SUBSTR(name, 1, 1), COUNT(*)
+FROM
+  Products
+GROUP BY
+  SUBSTR(name, 1, 1);
+```
+- The following query returns the rows in random order because the order is not based on the contents of any column but on a random value.
 ```sql
 SELECT * FROM Products ORDER BY RANDOM();
 ```
