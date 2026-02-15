@@ -1,1 +1,4 @@
-
+SELECT COUNT(*) AS number_of_combinations
+FROM Products p1
+JOIN products p2 ON p1.id <= p2.id
+WHERE p1.price + p2.price = 10;
