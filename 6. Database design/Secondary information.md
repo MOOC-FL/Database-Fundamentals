@@ -38,6 +38,57 @@ id  user_id  message
 1   1        Hei!   
 2   2        Hei!   
 ```
+- In this case, it would not be a good idea to implement a database so that if two users send a message with the same content, the message content is only stored in one place.
+- Even though the messages have the same content, they are separate messages that are not intended to refer to the same thing. If user 1 changes the content of a message, the change should not be reflected in user 2's message, even if it currently has the same content.
+##### Example 2
+- We store information about students' achievements in a database. The database can be used to query how many credits a student has completed.
+- In the following database, information is stored for each student about how many credits they have completed. The table `Students` contains:
+```text
+id  name    total_credits
+--  ------  -------------
+1   Maija   20           
+2   Uolevi  10           
+```
+The table, `Completionsin` turn, has the following lines:
+```text
+id  student_id  course_id  credits
+--  ----------  ---------  -------
+1   1           1          5      
+2   1           2          5      
+3   1           4          10     
+4   2           1          5      
+5   2           3          5     
+```
+We can easily retrieve a student's total credits like this:
+```sql
+SELECT total_credits FROM Students WHERE name = 'Maija';
+```
+- However, the database contains secondary information: the contents of a table `Students` column`total_credit` scan be calculated `Completions` using the table. For example, the number of credits Maija has in the 20 table `Students` can also be calculated as the sum of 5 + 5 + 10 from the table `Completions`.
+- The problem is that when adding an achievement, you must both add a new row to the table `Completions` and update the total number of credits in the table `Students`. If the update is forgotten or fails, conflicting information will be entered into the database.
+- We get rid of the duplicate data by deleting the column `total_credits` from the table `Students`:
+```text
+id  name  
+--  ------
+1   Maija 
+2   Uolevi
+```
+As a result of this change, it is more difficult to determine a student's total number of credits, because the information must be calculated based on the achievements:
+```sql
+SELECT SUM(Completions.credits) AS total_credits
+FROM Completions, Students
+WHERE Completions.student_id = Students.id AND Students.name = 'Maija';
+```
+However, this is a good change overall, because now we can worry-free change the grades on the board `Completions` and be confident that we will always get up-to-date information about the student's credits.
+
+
+
+
+
+
+
+
+
+
 
 
 
