@@ -40,6 +40,8 @@ id  name       release_year
 ```sql
 SELECT name FROM Movies WHERE release_year = 1940;
 ```
+- But what if we split the movies into multiple boards? For example, we could split the movies into boards by year. In this case, the board Movies1940would contain movies from 1940, and we could search for them like this:
+
 - This solution works as long as we only want to search for movies from a certain year. However, the database becomes unwieldy if we want to do any other searches. For example, if we want to search for all movies from 1940–1950, we need several queries:
 ```sql
 SELECT name FROM Movies1940;
@@ -51,7 +53,6 @@ SELECT name FROM Movies1950;
 - However, when the movies are on the same board, we can figure it out with one query:
 ```sql
 SELECT name FROM Movies WHERE release_year BETWEEN 1940 AND 1950;
-
 ```
 - When the movies are in one table, we can process them in a variety of ways with individual SQL commands, which would not be possible if there were multiple tables.
 
