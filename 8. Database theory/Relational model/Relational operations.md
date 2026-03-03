@@ -17,3 +17,18 @@
   - price​​​​
  ( P )There are only four plurals because two products have the same price.
   - A projection corresponds to an SQL query that retrieves specific columns from a table. For example, a projection **Πofame(P)Π name​(P)** corresponds to a SQL query `SELECT name FROM Products`.
+##### Restriction
+- Restriction​​​ **σ**
+σforms a relation that contains tuples that satisfy certain conditions of the original relation. Examples:
+<p align="center">
+  <img src="https://github.com/MOOC-FL/Media/blob/main/Database%20Fundementals/Database%20Theory/Screenshot%202026-03-03%20133218.png" alt="">
+</p>
+
+- A restriction corresponds to an SQL query where rows are selected `WHERE` in the -part. For example, a restriction 
+**σprIce=4(P)σ price = 4​​​(P)** corresponds to a SQL query `SELECT * FROM Products WHERE price = 4`.
+  
+-  Combining projection and restriction yields the equivalent of, for example, an SQL query `SELECT name FROM Products WHERE price <= 5`:
+
+<p align="center">
+  <img src="https://github.com/MOOC-FL/Media/blob/main/Database%20Fundementals/Database%20Theory/Screenshot%202026-03-03%20133241.png" alt="">
+</p>
