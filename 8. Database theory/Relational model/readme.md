@@ -15,7 +15,11 @@ a
 <
 b
 a<bWhen the consideration is restricted to positive integers, this set looks like this:
-> [( 1 ,2 ) ,( 1 ,3 ) ,( 2 ,3 ) ,( 1 ,4 ) ,( 2 ,4 ) ,( 3 ,4 ) ,…]
+
+<p align="center">
+  <img src="https://github.com/MOOC-FL/Media/blob/main/Database%20Fundementals/Database%20Theory/Screenshot%202026-03-03%20113334.png" alt="">
+</p>
+
 - A binary relation is two-position, meaning that each element of the relation is a pair. More generally, it can be defined as
 k
 k-local relation, where each element of the relation is a set of forms
@@ -42,8 +46,10 @@ k
 ​
  ).
 - In a relational database, a relation represents a collection of data that has a specific structure. For example, the following relation contains information about products:
-> P={( 1 ,re t i i s i ,7 ) ,( 2 ,carrot ,​​5 ) ,( 3 ,turnip ,​​​​4 ) ,
-( 4 ,land ,​​​8 ) ,( 5 ,he ll er i ,4 )}
+
+<p align="center">
+  <img src="https://github.com/MOOC-FL/Media/blob/main/Database%20Fundementals/Database%20Theory/Screenshot%202026-03-03%20113356.png" alt="">
+</p>
 - This relation is three-position and its attributes are:
     - *i d*: product id number
     - *name*​: product name
